@@ -1,0 +1,58 @@
+<div class="mb-1" fxLayout="row wrap" fxLayoutAlign="center center">
+  Set properties for the <b class="ml-05 mr-05">{{controlType}}</b> type
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="controlType == 'input'">
+  <div fxLayout="row wrap">
+    <mat-form-field class="">
+      <mat-select [(ngModel)]="inputFilter" placeholder="Select type" (selectionChange)="changeValue()">
+        <mat-option value="text">text</mat-option>
+        <mat-option value="password">password</mat-option>
+        <mat-option value="email">email</mat-option>
+        <mat-option value="number">number</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row wrap" class="mt-1">
+    <mat-form-field class="">
+      <input matInput placeholder="value" [type]="inputFilter" [(ngModel)]="inputValueFilter">
+    </mat-form-field>
+  </div>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="controlType == 'checkbox'">
+  <div fxLayout="row wrap">
+    <mat-form-field class="">
+      <input matInput placeholder="Enter label" [(ngModel)]="inputValueFilter">
+    </mat-form-field>
+  </div>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="controlType == 'button'">
+  <div fxLayout="row wrap">
+    <mat-form-field class="">
+      <mat-select [(ngModel)]="inputFilter" placeholder="Select button type">
+        <mat-option value="submit">Submit</mat-option>
+        <mat-option value="reset">Reset</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row wrap" class="mt-1">
+    <mat-form-field class="">
+      <input matInput placeholder="Enter label" [(ngModel)]="inputValueFilter">
+    </mat-form-field>
+  </div>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="controlType == 'radio'">
+  <div fxLayout="row wrap">
+    <mat-form-field class="">
+      <input matInput placeholder="Enter label" [(ngModel)]="inputValueFilter">
+    </mat-form-field>
+  </div>
+</div>
+<div class="mt-1" fxLayout="row wrap" fxLayoutAlign="end center">
+  <button mat-button mat-raised-button type="button" (click)="closeDialog()">
+    CANCEL
+  </button>
+  <button mat-button mat-raised-button type="button" (click)="saveControl()"
+    style="background: #3f51b5; margin-left: 1rem; color: white">
+    SAVE
+  </button>
+</div>

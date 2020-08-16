@@ -1,0 +1,110 @@
+<div class="background">
+  <mat-toolbar class="topbar remove-padding">
+    <div fxLayout="row" class="full-width">
+      <div fxFlex>
+        <!-- <img src="assets/images/linga-logo.png" alt="" id="mini-logo-topbar" style="width:50px; height:50px;" /> -->
+      </div>
+     
+      <div fxFlex="100px" fxLayoutAlign="end center">
+        <h4>Purna Chandra</h4>&nbsp;&nbsp;
+        <button mat-button mat-raised-button color="primary" type="button" (click)="goToPublish()">
+          SUBMIT
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+</div>
+<div fxLayout="row" class="full-width">
+  <div fxFlex="20">
+    <mat-card class="p-0 card-height">
+      <div class="f-large" fxLayout="row" fxLayoutAlign="center center">
+        INPUT ELEMENTS
+      </div>
+      <div class="mt-1-05 p-10" fxLayout="row wrap" fxLayoutAlign="center center" dragula="formControls"
+        [(dragulaModel)]="controls" [attr.data-position]="'original'">
+        <div class="mb-1" fxFlex="100" *ngFor="let item of controls" [attr.data-controlType]="item.name">
+          <div class="controls">
+            {{item.value}}
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div fxFlex="60">
+    <mat-card class="p-0 card-height">
+      <div class="f-large" fxLayout="row" fxLayoutAlign="center center">
+        CANVAS
+      </div><br>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <img src="assets/images/linga-logo.png" alt="" id="mini-logo-topbar" style="width:50px; height:50px;" />
+      </div>
+
+      <div class="mt-1-05" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" style="height: 80%;">
+        <mat-card class="login-inner controls-height">
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="center center" *ngIf="components.length != 5">
+              <div class="drop-class" fxFlex="100" dragula="formControls" [(dragulaModel)]="controls1"
+                [attr.data-position]="'none'">
+                <span fxLayoutAlign="center center" class="custom-drag-items-text">
+                  Drop the components here
+                </span>
+              </div>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="center center">
+              <div fxFlex="100" fxLayoutAlign="center center" *ngFor="let item of components">
+                <div class="mt-1" *ngIf="item.Name == 'input'">
+                  <mat-form-field class="">
+                    <input matInput placeholder="Enter value" [(ngModel)]="item.Value" [type]="item.Type">
+                  </mat-form-field>
+                </div>
+                <div class="mt-1" *ngIf="item.Name == 'select'">
+                  <mat-form-field class="">
+                    <mat-select [(ngModel)]="item.Value" placeholder="Select type">
+                      <mat-option value="text">text</mat-option>
+                      <mat-option value="password">password</mat-option>
+                      <mat-option value="email">email</mat-option>
+                      <mat-option value="number">number</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="mt-1" *ngIf="item.Name == 'checkbox'">
+                  <mat-checkbox [(ngModel)]="item.Value">
+                    {{item.Label}}
+                  </mat-checkbox>
+                </div>
+                <div class="mt-1" *ngIf="item.Name == 'radio'">
+                  <mat-radio-group class="radio-group mt-05" [(ngModel)]="item.Value">
+                    <div fxLayout="row wrap">
+                      <div fxFlex="100" fxFlex.gt-sm="100">
+                        <mat-radio-button value="true" [checked]="item.Value === true">
+                          {{item.Label}}
+                        </mat-radio-button>
+                      </div>
+                    </div>
+                  </mat-radio-group>
+                </div>
+                <div class="mt-1 full-width" *ngIf="item.Name == 'button'">
+                  <button class="full-width" mat-button mat-raised-button [type]="item.Type"
+                    style="background: #3f51b5; color: white" (click)="buttonClick(item.Type)">
+                    {{item.Value}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card>
+  </div>
+  <div fxFlex="20">
+    <mat-card class="p-0 card-height">
+      <div class="f-large" fxLayout="row" fxLayoutAlign="center center">
+        JSON 
+      </div>
+      <div *ngIf="components && components.length > 0" class="mt-1-05" fxLayout="row wrap" fxLayoutAlign="center center"
+        fxLayoutGap="10px">
+        <pre id="style-1">{{components | json}}</pre>
+      </div>
+    </mat-card>
+  </div>
+</div>

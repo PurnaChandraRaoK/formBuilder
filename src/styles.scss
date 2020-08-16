@@ -1,0 +1,150 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+    font-family: cursive;
+}
+
+.f-large {
+    font-size: 20px;
+}
+
+.f-small {
+    font-size: 14px;
+}
+
+.background {
+    background-color: #c5cdce;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.card-height {
+    height: 88vh;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-05 {
+    margin-top: 0.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-05 {
+    margin-bottom: 0.5rem;
+}
+
+.ml-1 {
+    margin-left: 1rem;
+}
+
+.ml-05 {
+    margin-left: 0.5rem;
+}
+
+.mr-1 {
+    margin-right: 1rem;
+}
+
+.mr-05 {
+    margin-right: 0.5rem;
+}
+
+.mt-1-05 {
+    margin-top: 1.5rem;
+}
+
+.controls {
+    border: 2px solid black;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.controls-height {
+    width: 400px;
+    max-height: 400px;
+}
+
+.login-bg {
+    background-color: white;
+    height: 100vh;
+    // background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1.0), $primary-color);
+}
+
+.login-inner {
+    padding: 15px 30px 15px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2) !important;   
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+}
+
+.login-page{ 
+    input {
+        height: 43px !important;
+    }
+
+    .mat-form-field-empty {
+        margin-top: 7px !important;
+    }
+
+    .mat-form-field-should-float {
+      .mat-form-field-empty {
+        margin-top: 0px !important;
+        }
+    }
+}
+ 
+.u-userLauncherColor {
+  border: 1px solid #fff !important;
+}
+
+.drop-class {
+    padding: 10px;
+    border: 2px dotted black;
+}
+
+.mat-input-element:disabled {
+    color: black !important;
+}
+
+input.mat-input-element {
+    line-height: 0;
+}
+
+#style-1 {
+  overflow: auto; 
+    
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+    background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #c1bfbf;
+  }
+}

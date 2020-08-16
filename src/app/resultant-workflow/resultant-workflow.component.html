@@ -1,0 +1,69 @@
+<div class="background">
+  <mat-toolbar class="topbar remove-padding">
+    <div fxLayout="row" class="full-width">
+      <div fxFlex>
+        <img src="assets/images/linga-logo.png" alt="" id="mini-logo-topbar"
+          style="width:50px; height:50px; cursor: pointer;" (click)="goToMainPage()" />
+      </div>
+      <div fxFlex="100px" fxLayoutAlign="end center">
+        <button mat-button mat-raised-button color="primary" type="button" (click)="downloadCode()">
+          Download
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+</div>
+<div fxLayout="row" class="full-width">
+  <div fxFlex="100">
+    <mat-card class="p-0 card-height">
+      <div class="mt-1-05" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" style="height: 80%;">
+        <mat-card class="login-inner controls-height">
+          <mat-card-content>
+            <div fxLayout="row wrap" fxLayoutAlign="center center">
+              <div fxFlex="100" fxLayoutAlign="center center" *ngFor="let item of components">
+                <div class="mt-1" *ngIf="item.Name == 'input'">
+                  <mat-form-field class="">
+                    <input matInput placeholder="Enter value" [(ngModel)]="item.Value" [type]="item.Type"
+                      [disabled]=true>
+                  </mat-form-field>
+                </div>
+                <div class="mt-1" *ngIf="item.Name == 'select'">
+                  <mat-form-field class="">
+                    <mat-select [(ngModel)]="item.Value" placeholder="Select type" [disabled]=true>
+                      <mat-option value="text">text</mat-option>
+                      <mat-option value="password">password</mat-option>
+                      <mat-option value="email">email</mat-option>
+                      <mat-option value="number">number</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="mt-1" *ngIf="item.Name == 'checkbox'">
+                  <mat-checkbox [(ngModel)]="item.Value" [disabled]=true>
+                    {{item.Label}}
+                  </mat-checkbox>
+                </div>
+                <div class="mt-1" *ngIf="item.Name == 'radio'">
+                  <mat-radio-group class="radio-group mt-05" [(ngModel)]="item.Value" [disabled]=true>
+                    <div fxLayout="row wrap">
+                      <div fxFlex="100" fxFlex.gt-sm="100">
+                        <mat-radio-button value="true" [checked]="item.Value === true">
+                          {{item.Label}}
+                        </mat-radio-button>
+                      </div>
+                    </div>
+                  </mat-radio-group>
+                </div>
+                <div class="mt-1 full-width" *ngIf="item.Name == 'button'">
+                  <button class="full-width" mat-button mat-raised-button [type]="item.Type" [disabled]=true
+                    style="background: #3f51b5; color: white" (click)="buttonClick(item.Type)">
+                    {{item.Value}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card>
+  </div>
+</div>
